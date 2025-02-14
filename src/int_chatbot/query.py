@@ -88,7 +88,8 @@ Vereisten:
 - Gebruik WHERE-clausules en GROUP BY voor aggregaties waar logisch.
 - Limiteer resultaten tot 10 rijen tenzij anders gevraagd.
 - Let erop dat je spaties gebruikt rondom de SQL sleutelwoorden.
-- Gebruik geen markdown of code-markeringen zoals ` of ```; je query begint met SELECT.
+- Je geeft geen uitleg of extra tekst en antwoord enkel met de SQL-query.
+- Gebruik geen markdown of code-markeringen zoals ` of ```; je antwoord begint met SELECT.
 
 Vraag: {question}"""
 
@@ -158,19 +159,7 @@ def rag_query(llm: OllamaLLM, question: str, vector_store: FAISS) -> str:
 
     prompt = f"""Je bent een expert in het analyseren van tekst en artikelen.
 Hieronder staan enkele relevante passages uit de dataset en de bijhorende titel en URL. Nadien volgt een vraag die je moet beantwoorden aan de hand van de gegeven passages.\
- Gebruik de informatie uit de passages om de vraag te beantwoorden en citeer de bronnen aan de hand van hun URL met een voetnoot waar dat gepast is.\
- Als (en slechts als) je de informatie van een bron gebruikt, voeg je die toe in Markdown als URL in een voetnoot.\
- De voetnoten met URLs plaats je onderaan, met een lege witregel ervoor om hen te scheiden van je hoofdantwoord. Bijvoorbeeld::
-
-```
-Deze zin heeft een URL in een voetnoot.[^1] En deze zin heeft een andere bron in een voetnoot.[^2] En deze laatste zin verwijst ook naar de eerste bron.[^1]
-
-
-[^1]: https://www.example.com
-[^2]: https://www.example.org
-```
-
-Je geeft geen voetnoten als er geen relevante passages zijn. Je verwijst dus ENKEL naar de relevante passages en URLs waarnaar je in je tekst verwezen hebt.
+ Gebruik de informatie uit de passages om de vraag te beantwoorden en citeer de bronnen aan de hand van hun URL met links in Markdown.
 
 ---
 

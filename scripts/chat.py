@@ -93,10 +93,12 @@ if __name__ == "__main__":
     )
     cparser.add_argument("-b", "--batch_size", type=int, default=8, help="Batchgrootte voor embeddings")
     cparser.add_argument("--torch_compile", action="store_true", help="Gebruik TorchScript compilatie voor embeddings")
+    cparser.add_argument("--disable_sql", dest="allow_sql", action="store_false", help="Schakel SQL-query's uit")
 
     cargs = cparser.parse_args()
     main(**vars(cargs))
 
     # Wat is de status van de Friese taal?
     # Wat is het laatste nieuws over Papiaments?
+    # Hoeveel unieke auteurs hebben gepubliceerd op neerlandistiek.nl?
     # Hoeveel artikelen staan er op neerlandistiek.nl?
