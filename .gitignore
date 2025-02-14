@@ -6,7 +6,7 @@ tmp/
 duckdbs/
 parquet_output/
 log.out
-data/
+data/*
 scratches/
 
 downloaded_warc_file.warc.gz
