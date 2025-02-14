@@ -9,6 +9,8 @@ git clone
 python -m pip install -e .[dev]
 ```
 
+Make sure that `ollama` is installed and running, and that you have `pull`'d the model you want to use, e.g. `ollama pull llama3`.
+
 ## 2. Prepare data
 
 Given our CSV file with our neerlandistiek.nl dumps, we should:
